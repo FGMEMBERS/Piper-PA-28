@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>adf.ac</path>
+  
+  <animation>
+    <!-- Objets opaques -->
+    <object-name>fond</object-name>
+    <object-name>contour</object-name>
+    <object-name>face</object-name>
+    <object-name>needle</object-name>
+    <object-name>needletst</object-name>
+    <object-name>index</object-name>
+    <object-name>plane</object-name>
+    <object-name>knob</object-name>
+    <object-name>knob2</object-name>
+    <object-name>knob100</object-name>
+    <object-name>knob10</object-name>
+    <object-name>knob1</object-name>
+    <object-name>Dial1000</object-name>
+    <object-name>Dial100</object-name>
+    <object-name>Dial10</object-name>
+    <object-name>Dial1</object-name>
+    <object-name>switch</object-name>
+    <object-name>Texte</object-name>
+    
+    <!-- Objets transparents -->
+    <object-name>100Up</object-name>
+    <object-name>100Dn</object-name>
+    <object-name>10Up</object-name>
+    <object-name>10Dn</object-name>
+    <object-name>1Up</object-name>
+    <object-name>1Dn</object-name>
+    <object-name>vitre</object-name>
+  </animation>
+  
+  <!-- working for Rembrandt -->
+  <effect>
+    <inherits-from>Aircraft/Piper-PA-28/Models/Effects/Glass/glass</inherits-from>
+    <object-name>vitre</object-name>
+  </effect>
+  
+  <animation>
+    <type>material</type>
+    <object-name>face</object-name>
+    <object-name>needle</object-name>
+    <object-name>needletst</object-name>
+    <object-name>index</object-name>
+    <object-name>plane</object-name>
+    <object-name>Texte</object-name>
+    <object-name>Dial1000</object-name>
+    <object-name>Dial100</object-name>
+    <object-name>Dial10</object-name>
+    <object-name>Dial1</object-name>
+    <condition>
+      <property>/instrumentation/adf/power-btn</property>
+      <greater-than>
+        <property>/systems/electrical/outputs/adf</property>
+        <value>13</value>
+      </greater-than>
+    </condition>
+    <emission>
+      <factor-prop>controls/lighting/luminosite-lights</factor-prop>
+      <red>   0.50 </red>
+      <green> 0.25 </green>
+      <blue>  0.25 </blue>
+    </emission>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>face</object-name>
+    <condition>
+      <property>/instrumentation/adf/power-btn</property>
+      <greater-than>
+        <property>/systems/electrical/outputs/adf</property>
+        <value>13</value>
+      </greater-than>
+    </condition>
+    <property>orientation/heading-magnetic-deg</property>
+    <center>
+      <x-m>  0.000 </x-m>
+      <y-m> -0.047 </y-m>
+      <z-m>  0.000 </z-m>
+    </center>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>select</type>
+    <object-name>needletst</object-name>
+    <condition>
+      <not><property>/instrumentation/kr-87/test</property></not>
+      <property>/instrumentation/adf/power-btn</property>
+      <greater-than>
+        <property>/systems/electrical/outputs/adf</property>
+        <value>13</value>
+      </greater-than>
+    </condition>
+  </animation>
+  
+  <animation>
+    <type>select</type>
+    <object-name>needle</object-name>
+    <condition>
+      <or>
+        <property>/instrumentation/kr-87/test</property>
+        <and>
+          <not><property>/instrumentation/kr-87/test</property></not>
+          <or>
+            <not><property>/instrumentation/adf/power-btn</property></not>
+            <less-than>
+              <property>/systems/electrical/outputs/adf</property>
+              <value>13</value>
+            </less-than>
+          </or>
+        </and>
+      </or>
+    </condition>
+  </animation>
+  
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>needle</object-name>
+    <condition>
+      <property>/instrumentation/kr-87/test</property>
+      <property>/instrumentation/adf/power-btn</property>
+      <greater-than>
+        <property>/systems/electrical/outputs/adf</property>
+        <value>13</value>
+      </greater-than>
+    </condition>
+    <property>instrumentation/adf/indicated-bearing-deg</property>
+    <center>
+      <x-m>  0.000 </x-m>
+      <y-m> -0.047 </y-m>
+      <z-m>  0.000 </z-m>
+    </center>
+    <axis>
+      <x>  -1 </x>
+      <y>  0 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+  
+  <!-- Dial1000 ne bouge pas normalement mais je le met quand même-->
+  <animation> 
+    <type>rotate</type>
+    <object-name>Dial1000</object-name>
+    <property>/instrumentation/adf/frequencies/digit[3]</property>
+    <factor> -36 </factor>
+    <center>
+      <x-m>  0.00199 </x-m>
+      <y-m> -0.01050 </y-m>
+      <z-m>  0.00171 </z-m>
+    </center>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  
+  <animation> 
+    <type>rotate</type>
+    <object-name>Dial100</object-name>
+    <property>/instrumentation/adf/frequencies/digit[2]</property>
+    <factor> -36 </factor>
+    <center>
+      <x-m> 0.00199 </x-m>
+      <y-m> 0.00950 </y-m>
+      <z-m> 0.00171 </z-m>
+    </center>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>pick</type>
+    <visible>false</visible>
+    <object-name>100Dn</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>/instrumentation/adf/frequencies/digit[2]</property>
+        <!-- <property>instrumentation/kt76a/digit4</property>-->
+        <step type="int">-1</step>
+        <min>0</min>
+        <max>10</max>
+        <wrap>true</wrap>
+      </binding>
+      <binding>
+        <command>property-cycle</command>
+        <condition>
+          <equals>
+            <property>/instrumentation/adf/frequencies/digit[2]</property>
+            <value>9</value>
+            </equals>
+        </condition>
+        <property>/instrumentation/adf/frequencies/digit[3]</property>
+        <!-- <property>instrumentation/kt76a/digit4</property>-->
+        <!--<step type="int">-1</step>-->
+        <value>0</value>
+        <value>1</value>
+        <!--<wrap>true</wrap>-->
+      </binding>
+      <binding>
+        <command>nasal</command>
+        <script>radio.set_adf();</script>
+      </binding>
+    </action>
+  </animation>
+  
+  <animation>
+    <type>pick</type>
+    <visible>false</visible>
+    <object-name>100Up</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>/instrumentation/adf/frequencies/digit[2]</property>
+        <!--<property>instrumentation/kt76a/digit4</property>-->
+        <step type="int">1</step>
+        <min>0</min>
+        <max>10</max>
+        <wrap>true</wrap>
+      </binding>
+      <binding>
+        <command>property-cycle</command>
+        <condition>
+          <equals>
+            <property>/instrumentation/adf/frequencies/digit[2]</property>
+            <value>0</value>
+          </equals>
+        </condition>
+        <property>/instrumentation/adf/frequencies/digit[3]</property>
+        <!-- <property>instrumentation/kt76a/digit4</property>-->
+        <!--<step type="int">1</step>-->
+        <value>0</value>
+        <value>1</value>
+       <!-- <wrap>true</wrap>-->
+      </binding>      
+      <binding>
+        <command>nasal</command>
+        <script>radio.set_adf();</script>
+      </binding>
+    </action>
+  </animation>
+  
+  <animation> 
+    <type>rotate</type>
+    <object-name>Dial10</object-name>
+    <property>/instrumentation/adf/frequencies/digit[1]</property>
+    <factor> -36 </factor>
+    <center>
+      <x-m> 0.00199 </x-m>
+      <y-m> 0.03550 </y-m>
+      <z-m> 0.00171 </z-m>
+    </center>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>pick</type>
+    <visible>false</visible>
+    <object-name>10Dn</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>/instrumentation/adf/frequencies/digit[1]</property>
+        <!-- <property>instrumentation/kt76a/digit4</property>-->
+        <step type="int">-1</step>
+        <min>0</min>
+        <max>10</max>
+        <wrap>true</wrap>
+      </binding>
+      <binding>
+        <command>nasal</command>
+        <script>radio.set_adf();</script>
+      </binding>
+    </action>
+  </animation>
+  
+  <animation>
+    <type>pick</type>
+    <visible>false</visible>
+    <object-name>10Up</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>/instrumentation/adf/frequencies/digit[1]</property>
+        <!--<property>instrumentation/kt76a/digit4</property>-->
+        <step type="int">1</step>
+        <min>0</min>
+        <max>10</max>
+        <wrap>true</wrap>
+      </binding>
+      <binding>
+        <command>nasal</command>
+        <script>radio.set_adf();</script>
+      </binding>
+    </action>
+  </animation>
+  
+  <animation> 
+    <type>rotate</type>
+    <object-name>Dial1</object-name>
+    <property>/instrumentation/adf/frequencies/digit[0]</property>
+    <factor> -36 </factor>
+    <center>
+      <x-m> 0.00199 </x-m>
+      <y-m> 0.05750 </y-m>
+      <z-m> 0.00171 </z-m>
+    </center>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>pick</type>
+    <visible>false</visible>
+    <object-name>1Dn</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>/instrumentation/adf/frequencies/digit[0]</property>
+        <!-- <property>instrumentation/kt76a/digit4</property>-->
+        <step type="int">-1</step>
+        <min>0</min>
+        <max>10</max>
+        <wrap>true</wrap>
+      </binding>
+      <binding>
+        <command>nasal</command>
+        <script>radio.set_adf();</script>
+      </binding>
+    </action>
+  </animation>
+  
+  <animation>
+    <type>pick</type>
+    <visible>false</visible>
+    <object-name>1Up</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>/instrumentation/adf/frequencies/digit[0]</property>
+        <!--<property>instrumentation/kt76a/digit4</property>-->
+        <step type="int">1</step>
+        <min>0</min>
+        <max>10</max>
+        <wrap>true</wrap>
+      </binding>
+      <binding>
+        <command>nasal</command>
+        <script>radio.set_adf();</script>
+      </binding>
+    </action>
+  </animation>
+  
+  <!--  <object-name>switch</object-name> 
+  <center>
+    <x-m>  0.00744 </x-m>
+    <y-m>  0.02288 </y-m>
+    <z-m> -0.02088 </z-m>
+  </center>
+  <axis>
+    <x> 0 </x>
+    <y> 0 </y>
+    <z> 1 </z>
+  </axis>-->
+  
+  <animation> 
+    <type>rotate</type>
+    <object-name>Knob</object-name> 
+    <property>/instrumentation/kr-87/test</property>
+    <factor> -90 </factor>
+    <center>
+      <x-m>  0.00895 </x-m>
+      <y-m> -0.01927 </y-m>
+      <z-m> -0.02732 </z-m>
+    </center>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation> 
+    <type>pick</type>
+    <object-name>Knob</object-name> 
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>/instrumentation/kr-87/test</property>
+      </binding>
+    </action>
+  </animation>
+  
+  
+  
+  
+  <animation> 
+    <type>rotate</type>
+    <object-name>Knob2</object-name> 
+    <property>/instrumentation/adf/volume-norm</property>
+    <factor> -180 </factor>
+    <center>
+      <x-m>  0.00895 </x-m>
+      <y-m>  0.06165 </y-m>
+      <z-m> -0.02207 </z-m>
+    </center>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  
+
+
+  <animation> 
+    <type>pick</type>
+    <object-name>Knob2</object-name> 
+    <action>
+      <button>3</button>
+      <binding>
+        <command>property-assign</command>
+        <condition>
+          <greater-than-equals>
+            <property>/instrumentation/adf/volume-norm</property>
+            <value>0</value>
+          </greater-than-equals>
+        </condition>
+        <property>/instrumentation/adf/power-btn</property>
+        <value>true</value>
+      </binding>
+      <binding>
+        <command>property-adjust</command>
+        <property>/instrumentation/adf/volume-norm</property>
+        <step>0.1</step>
+        <min>0</min>
+        <max>1</max>
+      </binding>
+    </action>
+  </animation>
+  
+  
+  <animation> 
+    <type>pick</type>
+    <object-name>Knob2</object-name> 
+    <action>
+      <button>4</button>
+      <binding>
+        <command>property-assign</command>
+        <condition>
+          <less-than>
+            <property>/instrumentation/adf/volume-norm</property>
+            <value>0.2</value>
+          </less-than>
+        </condition>
+        <property>/instrumentation/adf/power-btn</property>
+        <value>false</value>
+      </binding>
+      <binding>
+        <command>property-adjust</command>
+        <property>/instrumentation/adf/volume-norm</property>
+        <step>-0.1</step>
+        <min>0</min>
+        <max>1</max>
+      </binding>
+    </action>
+  </animation>
+  
+
+  
+</PropertyList>
