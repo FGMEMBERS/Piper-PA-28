@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!-- Piper PA 28 - 2016 Emmanuel BARANGER
+     Model 140 Cherokee 1964
+
+     sources          : https://en.wikipedia.org/wiki/Piper_PA-28_Cherokee
+
+     wingspan         :  30.0 ft   (   9.20 m )
+     length           :  23.3 ft   (   7.16 m )
+     height           :   7.3 ft   (   2.25 m )
+     empty weight     :  1201 lb   ( 544 kg   )
+     engine           : 1 Lycoming O-320-E2A Sensenich M74DM propeller ( 150 hp )
+     Maximum speed    :   123 kt   ( 230 km/h )
+     Cruise speed     :   108 kt   ( 200 km/h )
+     Stall speed      :    47 kt   (  87 km/h )
+-->
+<airplane mass="1201" version="YASIM_VERSION_CURRENT">
+
+  <!-- Approach configuration -->
+  <approach speed="47" aoa="3" fuel="0.3">
+    <control-setting axis="/controls/engines/engine[0]/throttle" value="0.2"/>
+    <control-setting axis="/controls/engines/engine[0]/mixture" value="1"/>
+  </approach>
+
+  <!-- Cruise configuration -->
+  <cruise speed="108" alt="6000" fuel="0.5">
+    <control-setting axis="/controls/engines/engine[0]/throttle" value="0.7"/>
+    <control-setting axis="/controls/engines/engine[0]/mixture" value="0.6"/>
+  </cruise>
+
+  <cockpit x="1.175" y="0.263" z="0.31"/>
+
+  <!-- Fuselage Noze -->
+  <fuselage ax=" 3.306" ay=" 0.131" az="-0.253" bx=" 3.242" by=" 0.131" bz="-0.253" width="0.605" taper="0.80" midpoint="1"/>
+  <fuselage ax=" 3.306" ay="-0.131" az="-0.253" bx=" 3.242" by="-0.131" bz="-0.253" width="0.605" taper="0.80" midpoint="1"/>
+  <!-- Fuelsage left section -->
+  <fuselage ax=" 3.242" ay=" 0.131" az="-0.253" bx=" 2.937" by=" 0.102" bz="-0.304" width="0.756" taper="0.80" midpoint="1"/>
+  <fuselage ax=" 2.937" ay=" 0.102" az="-0.304" bx=" 1.817" by=" 0.079" bz="-0.336" width="1.000" taper="0.74" midpoint="1"/>
+  <fuselage ax=" 1.817" ay=" 0.079" az="-0.336" bx=" 0.072" by=" 0.079" bz="-0.336" width="1.000" taper="1.00" midpoint="1"/>
+  <fuselage ax=" 0.132" ay=" 0.079" az="-0.347" bx="-0.503" by=" 0.000" bz="-0.112" width="1.000" taper="1.00" midpoint="1"/>
+  <!-- Fuselage right section -->
+  <fuselage ax=" 3.242" ay="-0.131" az="-0.253" bx=" 2.937" by="-0.102" bz="-0.304" width="0.756" taper="0.80" midpoint="1"/>
+  <fuselage ax=" 2.937" ay="-0.102" az="-0.304" bx=" 1.817" by="-0.079" bz="-0.336" width="1.000" taper="0.74" midpoint="1"/>
+  <fuselage ax=" 1.817" ay="-0.079" az="-0.336" bx=" 0.072" by="-0.079" bz="-0.336" width="1.000" taper="1.00" midpoint="1"/>
+  <fuselage ax=" 0.132" ay="-0.079" az="-0.347" bx="-0.503" by=" 0.000" bz="-0.112" width="1.000" taper="1.00" midpoint="1"/>
+  <!-- Fuselage rear section -->
+  <fuselage ax="-0.503" ay=" 0.000" az="-0.112" bx="-3.238" by=" 0.000" bz="-0.105" width="0.996" taper="0.20" midpoint="0"/>
+  <!-- Cockpit section -->
+  <fuselage ax=" 2.197" ay=" 0.000" az="-0.280" bx=" 1.316" by=" 0.000" bz=" 0.065" width="1.034" taper="0.80" midpoint="1"/>
+  <fuselage ax=" 1.499" ay=" 0.000" az=" 0.025" bx=" 0.772" by=" 0.000" bz=" 0.047" width="1.034" taper="0.90" midpoint="0"/>
+  <fuselage ax=" 0.837" ay=" 0.000" az="-0.001" bx="-1.452" by=" 0.000" bz="-0.121" width="1.034" taper="0.70" midpoint="0"/>
+
+  <wing x="0.870" y="0" z="-0.671" 
+        chord="1.530" 
+        length="5.296" 
+        taper="1"
+        dihedral="7"
+        camber="0.005">
+        <stall aoa="26" width="1" peak="1.5"/>
+        <flap0 start="0.12" end="0.52" lift="1.2" drag="1.1"/>
+        <flap1 start="0.52" end="0.94" lift="1.2" drag="1.1"/>
+
+        <control-input axis="/controls/flight/flaps" control="FLAP0"/>
+        <control-input axis="/controls/flight/aileron" control="FLAP1" split="true"/>
+        <control-input axis="/controls/flight/aileron-trim" control="FLAP1" split="true"/>
+
+        <control-output control="FLAP0" prop="/surface-positions/flap-pos-norm"/>
+        <control-output control="FLAP1" side="left" prop="/surface-positions/left-aileron-pos-norm"/>
+        <control-output control="FLAP1" side="right" prop="/surface-positions/right-aileron-pos-norm"/>
+
+        <control-speed control="FLAP0" transition-time="2"/>
+  </wing>
+
+  <hstab x="-3.08891" y="0" z="-0.065" 
+         chord="0.772"
+         length="1.959" 
+         taper="1">
+         <stall aoa="16" width="1" peak="1.5"/>
+         <flap0 start="0" end="1" lift="1.2" drag="1.1"/>
+
+         <control-input axis="/controls/flight/elevator" control="FLAP0"/>
+         <control-input axis="/controls/flight/elevator-trim" control="FLAP0"/>
+
+         <control-output control="FLAP0" prop="/surface-positions/elevator-pos-norm"/>
+  </hstab>
+
+  <vstab x="-2.58819" y="0" z="-0.00385" 
+         chord="1.4"
+         length="1.5"
+         taper="0.32"
+         sweep="28">
+         <stall aoa="14" width="1" peak="1.5"/>
+         <flap0 start="0" end="1" lift="1.2" drag="1.1"/>
+
+         <control-input axis="/controls/flight/rudder" control="FLAP0" invert="true"/>
+         <control-input axis="/controls/flight/rudder-trim" control="FLAP0" invert="true"/>
+
+         <control-output control="FLAP0" prop="/surface-positions/rudder-pos-norm" min="1" max="-1"/>
+  </vstab>
+
+  <!-- Engines   source            : https://en.wikipedia.org/wiki/Lycoming_O-320
+
+                 name              : Lycoming O-320
+                 type              : Four-cylinder air-cooled horizontally opposed engine
+                 power cruise      : 150 hp at 2700 rpm
+                 weight            : 244   lb    ( 111    kg )
+                 displacement      : 319.8 cu in (   5.24 l  )
+                 compression       : 7:1
+  -->
+  <propeller x="2.83928" y="0" z="-0.23387" 
+             radius="0.797"
+             mass="244" 
+             moment="12"  
+             cruise-speed="108" 
+             cruise-rpm="2500"
+             cruise-alt="6000" 
+             cruise-power="140"
+             takeoff-power="150" 
+             takeoff-rpm="2700">
+             <actionpt x="3.38184" y="0" z="-0.23387"/>
+             <piston-engine eng-rpm="2700" 
+                            eng-power="150"
+                            displacement="319.8" 
+                            compression="7">
+                            <control-input control="THROTTLE" axis="/controls/engines/engine[0]/throttle" src0="0.0" src1="1.0" dst0="0.0" dst1="1.0"/>
+                            <control-input control="STARTER" axis="/controls/engines/engine[0]/starter" />
+                            <control-input control="MAGNETOS" axis="/controls/engines/engine[0]/magnetos" />
+                            <control-input control="MIXTURE" axis="/controls/engines/engine[0]/mixture" src0="0.0" src1="1.0" dst0="0.8" dst1="0.8"/>
+             </piston-engine>
+  </propeller>
+  
+  <!-- Noze wheel -->
+  <gear x="2.79767" y="0" z="-1.39828" 
+        compression="0.2" 
+        spring="0.8">
+        <control-input axis="/controls/flight/rudder" control="STEER" square="false"/>
+  </gear>
+
+  <!-- Left wheel -->
+  <gear x="0.86056" y="-1.61394" z="-1.39828"
+        compression="0.2" 
+        spring="0.8">
+        <control-input axis="/controls/gear/brake-left" control="BRAKE"/>
+        <control-input axis="/controls/gear/brake-parking" control="BRAKE"/>
+  </gear>
+
+  <!-- Right wheel -->
+  <gear x="0.86056" y="1.61394" z="-1.39828"
+        compression="0.2" 
+        spring="0.8">
+        <control-input axis="/controls/gear/brake-right" control="BRAKE"/>
+        <control-input axis="/controls/gear/brake-parking" control="BRAKE"/>
+  </gear>
+
+  <!-- Tail -->
+  <gear x="-2.87412" y="0" z="-0.44078"
+        compression="0.02" 
+        spring="1.8"
+        damp="0.03" 
+        on-solid="1" >
+  </gear>
+
+  <tank x="0.870" y=" 2.3" z="-0.6" capacity="60" />
+  <tank x="0.870" y="-2.3" z="-0.6" capacity="60" />
+  
+  <!-- Mass distribution -->
+  <ballast x="2.8" y="0" z="-0.5" mass="250"/>
+
+</airplane>

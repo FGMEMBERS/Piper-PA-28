@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <sim include="Systems/views.xml">
+
+    <fuel-fraction> 0.80 </fuel-fraction>
+
+    <startup>
+      <splash-texture>Aircraft/Piper-PA-28/pa28-splash.png</splash-texture>
+    </startup>
+
+    <sound>
+      <path archive="y">Aircraft/Piper-PA-28/Sounds/pa28-sound.xml</path>
+    </sound>
+
+    <model>
+      <path archive="y">Aircraft/Piper-PA-28/Models/pa28.xml</path>
+      <livery>
+        <file type="string">default</file>
+      </livery>
+      <hide-yoke>true</hide-yoke>
+    </model>
+
+    <multiplay>
+      <chat_display>1</chat_display>
+      <generic> 
+        <int   n="0"  type="int">  0 </int>                                         <!-- 0 immat -->
+        <int   n="1"  type="int">  0 </int>                                         <!-- 1 immat -->
+        <int   n="2"  type="int">  0 </int>                                         <!-- 2 immat -->
+        <int   n="3"  type="int">  0 </int>                                         <!-- 3 immat -->
+        <int   n="4"  type="int">  0 </int>                                         <!-- 4 immat -->
+        <int   n="5"  type="int">  0 </int>                                         <!-- 5 immat -->
+        <int   n="6"  type="bool"> 1 </int>                                         <!-- 6 -->
+        <int   n="7"  type="int">  0 </int>                                         <!-- 7  -->
+        <int   n="8"  alias="/systems/electrical/outputs/nav-lights">  0 </int>     <!-- 8 nav-lights -->
+        <int   n="9"  alias="/sim/model/lights/beacon/state">  false </int>         <!-- 9 strobe-lights -->
+        <float n="0"  alias="/sim/model/door-positions/crew/position-norm"/>
+        <float n="1"  alias="/sim/model/door-positions/passenger/position-norm"/>
+        <float n="2"  alias="/position/gear-agl-m"> 0 </float>                      <!-- altitude for MP shadow -->
+        <float n="3"  alias="/position/altitude-ft"> 0 </float>                     <!-- altitude for Smoke/Trail -->
+        <float n="4"  alias="/engines/engine[0]/rpm"/>
+        <float n="5"  alias="/engines/engine[0]/cranking"/>
+        <float n="6"  alias="/gear/gear[0]/wow/"/>
+        <float n="7"  alias="/gear/gear[1]/wow/"/>
+        <float n="8"  alias="/gear/gear[2]/wow/"/>
+        <float n="9"  alias="/gear/gear[3]/wow/"/>
+        <float n="10" alias="/gear/gear[0]/rollspeed-ms"/>
+        <float n="11" alias="/gear/gear[1]/rollspeed-ms"/>
+        <float n="12" alias="/gear/gear[2]/rollspeed-ms"/>
+        <float n="13" alias="/gear/gear[3]/rollspeed-ms"/>
+        <!-- For Bombable -->
+        <int type="int" n="10" alias="controls/armament/trigger">0</int>
+        <string n="9" type="string" />
+      </generic>
+    </multiplay>
+    
+    <help include="Systems/help.xml"/>
+
+    <flaps include="Systems/flaps.xml"/>
+    
+    <pa28 include="Systems/pa28.xml"/>
+
+    <weight n="0">
+      <name>Pilot</name>
+      <weight-lb>180</weight-lb>
+      <max-lb>240</max-lb>
+      <min-lb>140</min-lb>
+    </weight>
+
+    <weight n="1">
+      <name>Pax</name>
+      <weight-lb>0</weight-lb>
+      <max-lb>240</max-lb>
+      <min-lb>0</min-lb>
+    </weight>
+
+    <weight n="2">
+      <name>Baggage</name>
+      <weight-lb>0</weight-lb>
+      <max-lb>20</max-lb>
+      <min-lb>0</min-lb>
+    </weight>
+
+    <menubar include="Dialogs/pa28-menu.xml"/>
+
+  </sim>
+
+  <input include="Systems/pa28-keyboard.xml"/>
+
+  <engines include="Systems/engines.xml"/>
+
+  <controls include="Systems/controls.xml"/>
+  
+  <instrumentation include="Systems/instrumentation.xml"/>
+  
+  <nasal>
+    <doors>
+      <file>Aircraft/Piper-PA-28/Nasal/doors.nas</file>
+    </doors>
+    <pa28>
+      <file>Aircraft/Piper-PA-28/Nasal/liveries.nas</file>
+      <file>Aircraft/Piper-PA-28/Nasal/light.nas</file>
+      <file>Aircraft/Piper-PA-28/Nasal/immat.nas</file>
+    </pa28>
+    <radio>
+      <file>Aircraft/Piper-PA-28/Nasal/radio.nas</file>
+    </radio>
+    <electrical>
+      <file>Aircraft/Piper-PA-28/Nasal/electrical.nas</file>
+    </electrical>
+  </nasal>
+
+</PropertyList>
