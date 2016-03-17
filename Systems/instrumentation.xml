@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!-- This file selects the instrumentation modules that should be available. -->
+<PropertyList>
+  
+  <adf>
+    <frequencies>
+    <name>adf</name>
+      <digit n="0">0</digit>
+      <digit n="1">0</digit>
+      <digit n="2">0</digit>
+      <digit n="3">0</digit>
+    </frequencies>
+    <volume-norm type="double">0</volume-norm>
+    <power-btn>false</power-btn>
+  </adf>
+  
+  <kr-87>
+    <test>1</test>
+  </kr-87>
+  
+  <transponder>
+    <name>transponder</name>
+    <inputs>
+      <mode>0</mode>
+      </inputs>
+    <number>0</number>
+  </transponder>
+  
+</PropertyList>
