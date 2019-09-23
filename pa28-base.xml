@@ -16,6 +16,7 @@
 
     <model>
       <path archive="y">Aircraft/Piper-PA-28/Models/pa28.xml</path>
+      <fallback-model-index type="int">11</fallback-model-index>
       <livery>
         <file type="string">default</file>
       </livery>
